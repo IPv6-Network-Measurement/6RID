@@ -37,19 +37,19 @@ Modify the `6RID/run.sh` script to define key parameters for network probing. Th
 
 ```bash
 # Define parameters
-INTERFACE_NAME="eno8303"
-SOURCE_MAC="08:92:04:a2:19:fc"
-SOURCE_IP="2402:f000:6:1e00::931"
-GATEWAY_MAC="74:ea:c8:b4:24:d4"
-INPUT_FILENAME="input/BGP.txt"
-OUTPUT_FILENAME="output/BGP_$(date +'%Y%m%d_%H%M%S').log"
+INTERFACE_NAME=""
+SOURCE_MAC=""
+SOURCE_IP=""
+GATEWAY_MAC=""
+INPUT_FILENAME="input/Hitlist_prefixes.txt"
+OUTPUT_FILENAME="$OUTPUT_DIR/$(date +'%Y%m%d_%H%M%S').log"
 ```
 
 #### **Modifications and Purpose:**
 
 | Parameter         | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
-| `INTERFACE_NAME`  | The network interface used for packet transmission (e.g., `eno8303`). |
+| `INTERFACE_NAME`  | The network interface used for packet transmission.          |
 | `SOURCE_MAC`      | The MAC address of the probing machine.                      |
 | `SOURCE_IP`       | The IPv6 address of the probing machine.                     |
 | `GATEWAY_MAC`     | The MAC address of the gateway router.                       |
