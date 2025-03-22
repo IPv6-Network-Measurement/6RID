@@ -6,7 +6,7 @@ This repository hosts 6RID, a feedback-based efficient and high hit-rate IPv6 ro
 
 ## II. Requirement
 
-Ensure your environment has the following dependencies installed:
+Before running 6RID, make sure the following dependencies are installed:
 
 - GCC (for compiling source code)
 - Bash (for running scripts)
@@ -31,9 +31,17 @@ bash Tools/generate_Hitlist_prefixes.sh
 - **Hitlist Prefix Dataset**:
   - Derived from known responsive IPv6 addresses, this dataset focuses on prefixes that historically contain active addresses. We aggregate and deduplicate these addresses to generate the final Hitlist prefix dataset.
 
-### **Step 2: Set the Configuration**
+### **Step 2: Compile 6RID**
 
-Modify the `6RID/run.sh` script to define key parameters for network probing. The following variables are included:
+Compiles the 6RID source code and generates the executable file `bin/main`.
+
+```bash
+make
+```
+
+### **Step 3: Set the Configuration and Run 6RID**
+
+Edit `run.sh` to configure essential parameters for network probing. The following variables are included:
 
 ```bash
 # Define parameters
@@ -56,16 +64,10 @@ OUTPUT_FILENAME="$OUTPUT_DIR/$(date +'%Y%m%d_%H%M%S').log"
 | `INPUT_FILENAME`  | The file containing the target prefixes for probing.         |
 | `OUTPUT_FILENAME` | A dynamically generated filename for logging results. The timestamp (`YYYYMMDD_HHMMSS`) ensures unique filenames across multiple runs. |
 
-### Step3 : Run 6RID
-
 Once the dataset is prepared and the configuration is set, execute the probing process by running:
 
 ```bash
 bash run.sh
 ```
 
-This will:
-
-1. Compile the source code.
-2. Start the probing process and send packets.
-3. Log results into the specified output file.
+This command initiates the probing process, transmitting packets and saving results to the specified log file.
